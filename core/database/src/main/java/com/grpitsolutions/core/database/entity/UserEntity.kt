@@ -10,5 +10,5 @@ data class UserEntity(
     val age: Int,
     val documentNumber: Int,
     @PrimaryKey(autoGenerate = true)
-    val id: Int
+    val id: Int?
 )
