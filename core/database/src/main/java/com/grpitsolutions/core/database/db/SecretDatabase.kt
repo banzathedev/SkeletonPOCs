@@ -14,5 +14,5 @@ import com.grpitsolutions.core.database.entity.SecretEntity
 
 abstract class SecretDatabase: RoomDatabase() {
 
-    abstract class secretDao: SecretDAO
+    abstract val secretDao: SecretDAO
 }
