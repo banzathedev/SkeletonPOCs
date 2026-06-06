@@ -1,7 +1,8 @@
 package com.grpitsolutions.core.domain.card
 
 data class Card(
+    val nameOnCard: String,
     val cardNumber: Int,
     val cardCvv: Int,
-    val cardID: Int?
+    val cardID: Int? = null
 )

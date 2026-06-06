@@ -4,5 +4,5 @@ data class User(
     val name: String,
     val age: Int,
     val document: Int,
-    val id: Int?
+    val id: Int? = null
 )

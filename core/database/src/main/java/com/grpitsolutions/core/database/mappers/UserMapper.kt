@@ -23,6 +23,7 @@ fun User.toEntity(): UserEntity {
 
 fun SecretEntity.toDomain(): Card {
     return Card(
+        nameOnCard = this.nameOnCard,
         cardNumber= this.cardNumber,
         cardCvv= this.cardCvv,
         cardID = this.id
@@ -31,6 +32,7 @@ fun SecretEntity.toDomain(): Card {
 
 fun Card.toEntity(): SecretEntity {
     return SecretEntity(
+        nameOnCard = this.nameOnCard,
         cardNumber = this.cardNumber,
         cardCvv = this.cardCvv,
         id = this.cardID

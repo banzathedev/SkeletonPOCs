@@ -12,7 +12,7 @@ interface UserDAO {
     @Upsert
     suspend fun upsertRun(user: UserEntity)
 
-    @Query("SELECT * FROM userentity WHERE id=id")
+    @Query("SELECT * FROM userentity WHERE id=:id")
     suspend fun selectUser(id: Int): UserEntity
 
     @Query("DELETE FROM userentity WHERE id=:id")

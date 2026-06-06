@@ -39,11 +39,12 @@ dependencies {
     implementation(project(":core:domain"))
 
     // Koin Dependency Injection
-    implementation("io.insert-koin:koin-android:4.2.1")
+    implementation("io.insert-koin:koin-android:4.0.0")
 
     // Secure Storage Engine
     implementation("androidx.room:room-runtime:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1") // Room processor (requires KSP plugin)
+    implementation("androidx.room:room-ktx:2.6.1")
     implementation("net.zetetic:android-database-sqlcipher:4.5.4")
     implementation("androidx.sqlite:sqlite:2.3.1")
     implementation("androidx.security:security-crypto:1.1.0-alpha06")

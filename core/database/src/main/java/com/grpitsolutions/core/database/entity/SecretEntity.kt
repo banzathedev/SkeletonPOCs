@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class SecretEntity(
+    val nameOnCard: String,
     val cardNumber: Int,
     val cardCvv: Int,
     @PrimaryKey(autoGenerate = true)

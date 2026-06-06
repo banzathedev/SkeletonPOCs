@@ -9,9 +9,9 @@ import com.grpitsolutions.core.domain.card.Card
 @Dao
 interface SecretDAO {
    @Upsert
-   suspend fun upsertCard(card: Card)
+   suspend fun upsertCard(card: SecretEntity)
 
-    @Query("SELECT * FROM secretentity WHERE id=id")
+    @Query("SELECT * FROM secretentity WHERE id=:id")
     suspend fun selectCard(id: Int): SecretEntity
 
     @Query("DELETE FROM secretentity WHERE id=:id")
