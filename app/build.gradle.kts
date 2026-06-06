@@ -42,6 +42,10 @@ android {
 }
 
 dependencies {
+
+    // Koin Dependency Injection
+    implementation("io.insert-koin:koin-android:4.2.1")
+    implementation(project(":core:database"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

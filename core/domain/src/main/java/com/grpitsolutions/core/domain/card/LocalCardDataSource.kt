@@ -4,9 +4,9 @@ interface LocalCardDataSource {
 
     suspend fun getCard(id: Int): Card
 
-    suspend fun getAllCards()
+    suspend fun getAllCards(): List<Card>
 
-    suspend fun deleteCard(id:Int): Card
+    suspend fun deleteCard(id:Int)
 
     suspend fun deleteCards()
 }

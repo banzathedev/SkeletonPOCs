@@ -1,25 +1,26 @@
 package com.grpitsolutions.core.database.db
 
 import com.grpitsolutions.core.database.dao.SecretDAO
+import com.grpitsolutions.core.database.mappers.toDomain
 import com.grpitsolutions.core.domain.card.Card
 import com.grpitsolutions.core.domain.card.LocalCardDataSource
 
 class RoomSecretLocalDataBase(
     val secretDao: SecretDAO
-): LocalCardDataSource {
+) : LocalCardDataSource {
     override suspend fun getCard(id: Int): Card {
-        TODO("Not yet implemented")
+        return secretDao.selectCard(id).toDomain()
     }
 
-    override suspend fun getAllCards() {
-        TODO("Not yet implemented")
+    override suspend fun getAllCards(): List<Card> {
+        return secretDao.selectAllCards().map { it.toDomain() }
     }
 
-    override suspend fun deleteCard(id: Int): Card {
-        TODO("Not yet implemented")
+    override suspend fun deleteCard(id: Int) {
+        secretDao.deleteCard(id)
     }
 
     override suspend fun deleteCards() {
-        TODO("Not yet implemented")
+        secretDao.deleteAllCards()
     }
 }
