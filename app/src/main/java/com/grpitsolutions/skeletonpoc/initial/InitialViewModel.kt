@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class InitialViewModel(
@@ -39,7 +40,7 @@ class InitialViewModel(
         when (action) {
             InitialAction.AddCard -> { tryAddCard() }
             InitialAction.AddPerson -> { tryAddPerson() }
-            InitialAction.ListAllCards -> TODO()
+            InitialAction.ListAllCards -> { getCardList() }
             InitialAction.ListAllPersons -> TODO()
         }
     }
@@ -70,7 +71,7 @@ class InitialViewModel(
         }
     }
 
-    fun generateRandomCard(): Card {
+    private fun generateRandomCard(): Card {
         val sampleNames = listOf("JOHN DOE", "JANE SMITH", "ALICE JOHNSON", "BOB WILLIAMS", "CARLOS SILVA")
 
         return Card(
@@ -80,4 +81,11 @@ class InitialViewModel(
         )
     }
 
+    private fun getCardList(){
+       viewModelScope.launch {
+           _state.update { it.copy(
+               cardList =  localCardDataSource.getAllCards()
+           ) }
+       }
+    }
 }
